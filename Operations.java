@@ -6,12 +6,10 @@ public class Operations {
     private TransactionType type;
     private LocalDateTime date;
 
-
     public enum TransactionType {
         deposit,
         withdraw
     }
-
 
     public Operations(Account account, double amount, TransactionType type) {
         this.account = account;
@@ -21,6 +19,6 @@ public class Operations {
     }
 
     public void execute() {
-
     }
+
 }
