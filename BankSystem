@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BankSystem {
+
+    private List<Account> accounts;
+
+    public BankSystem() {
+        accounts = new ArrayList<>();
+    }
+
+    // Создание аккаунта через консоль
+    public void createAccount(Scanner scanner) {
+        System.out.print("Type account ID: ");
+        String id = scanner.nextLine();
+
+        // Проверка на уникальность ID
+        if (findAccountById(id) != null) {
+            System.out.println("There is already an account with that ID");
+            return;
+        }
+
+        System.out.print("Type the account name: ");
+        String owner = scanner.nextLine();
+
+        Account account = new Account(id, owner);
+        accounts.add(account);
+
+        System.out.println("Account has been successfully created!");
+    }
+
+    public Account findAccountById(String accountId) {
+        for (Account acc : accounts) {
+            if (acc.getAccountId().equals(accountId)) {
+                return acc;
+            }
+        }
+        return null;
+    }
+
+    public void printAllAccounts() {
+        if (accounts.isEmpty()) {
+            System.out.println("The bank system does not contain any accounts.");
+            return;
+        }
+
+        for (Account acc : accounts) {
+            System.out.println(
+                    "ID: " + acc.getAccountId() + " Owner: " + acc.getOwnerName() + " Balance: " + acc.getBalance() + "$"
+            );
+        }
+    }
+
+    public void depositToAccount(Scanner scanner) {
+
+        System.out.print("Write ID: ");
+        String id = scanner.nextLine();
+
+        Account account = findAccountById(id);
+        if (account == null) {
+            System.out.println("ID not found");
+            return;
+        }
+
+        System.out.print("Type amount to deposit: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+        account.deposit(amount);
+    }
+}
