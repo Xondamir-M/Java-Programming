@@ -10,12 +10,10 @@ public class BankSystem {
         accounts = new ArrayList<>();
     }
 
-    // Создание аккаунта через консоль
     public void createAccount(Scanner scanner) {
         System.out.print("Type account ID: ");
         String id = scanner.nextLine();
 
-        // Проверка на уникальность ID
         if (findAccountById(id) != null) {
             System.out.println("There is already an account with that ID");
             return;
