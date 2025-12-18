@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        BankSystem bank = new BankSystem();
+        Scanner scanner = new Scanner(System.in);
+
+        boolean running = true;
+
+        while (running) {
+            System.out.println("\nSPARKASSE");
+            System.out.println("1. Create an account");
+            System.out.println("2. Show existing accounts");
+            System.out.println("3. Deposit money");
+            System.out.println("0. Exit");
+            System.out.print("Choose an operation: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    bank.createAccount(scanner);
+                    break;
+
+                case 2:
+                    bank.printAllAccounts();
+                    break;
+
+                case 3:
+                    bank.depositToAccount(scanner);
+                    break;
+
+                case 0:
+                    running = false;
+                    System.out.println("Quitting");
+                    break;
+
+                default:
+                    System.out.println("Not a valid opt");
+            }
+        }
+
+        scanner.close();
+    }
+}
