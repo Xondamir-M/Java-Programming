@@ -3,3 +3,12 @@ This is the github repository for Advanced Programming final assignment
 
 # SIMPLE ONLINE BANKING SYSTEM
 This program is initially developed to represent a simplified version of a regular bank application. It has multiple functions while being run, like: adding a new user (Customer), viewing the account balance, adding the money from the customer's account. And you can also see the list of the accounts created with their personal infos displayed.
+
+Consists of 4 classes: Main, Account, Operations and BankSystem.
+- Account class contains all user information
+- Operations class is responsible for the money transactions
+- BankSystem creates accounts and works with them
+
+
+Professor Mazhar Hameed
+Made by Khondamir Mamatov GH-1038054
