@@ -1,0 +1,32 @@
+public class Account {
+
+    private String accountId;
+    private String userName;
+    private double balance;
+    public Account(String accountId, String ownerName) {
+        this.accountId = accountId;
+        this.userName = ownerName;
+        this.balance = 0.0;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public String getOwnerName() {
+        return userName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            System.out.println("The amount must be greater than 0.");
+            return;
+        }
+        balance += amount;
+        System.out.println("The account was deposited " + amount + "$");
+    }
+}
